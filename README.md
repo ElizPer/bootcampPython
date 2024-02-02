@@ -1,4 +1,5 @@
 # bootcampPython
+# Exercícios do curso de Bootcamp Back-End Python e Django da WoMakersWoman e Mais Mulheres 
 
 # SEMANA 3:  
  * Conceitos básicos:  

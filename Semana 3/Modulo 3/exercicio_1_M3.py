@@ -17,7 +17,7 @@ Caso contrário,ele será classificado como""Inocente"".
 respostasSIM = []
 respostasNAO = []
 
-def Interrogatorio(resp):
+def interrogatorio(resp):
     if(resp == 'S'):
         respostasSIM.append(resp)
     elif(resp == 'N'):
@@ -25,9 +25,9 @@ def Interrogatorio(resp):
     else:
         print('Valor inválido, resposda "S" ou "N" ')
         resp = input('Responda ')
-        Interrogatorio(resp)
+        interrogatorio(resp)
 
-def Participacao():
+def participacao():
     if(len(respostasSIM) == 2):
         print('Suspeita(o)')
     elif(len(respostasSIM) > 2 and len(respostasSIM) <= 4 ):
@@ -38,20 +38,20 @@ def Participacao():
         print('Inocente')
 
 r1 = input('Telefonou para a vítima? ')
-Interrogatorio(r1)
+interrogatorio(r1)
 
 r2 = input ('Esteve no local do crime? ')
-Interrogatorio(r2)
+interrogatorio(r2)
 
 r3 = input('Mora perto da vítima? ')
-Interrogatorio(r3)
+interrogatorio(r3)
 
 r4 = input('Devia para a vítima?')
-Interrogatorio(r4)
+interrogatorio(r4)
 
 r5 = input('Já trabalhou com a vítima?')
-Interrogatorio(r5)
+interrogatorio(r5)
 
 print(f'Não: {len(respostasNAO)}')
 print(f'Sim: {len(respostasSIM)}')
-Participacao()
+participacao()

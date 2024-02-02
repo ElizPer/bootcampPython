@@ -4,7 +4,7 @@ e armazene numa lista a média de cada aluno, imprima o número
 de alunos com média maior ou igual a 7.0.
 '''
 media = []
-alunos = 3
+alunos = 5
 
 def Media(n1, n2, n3, n4):
     print(n1, n2, n3, n4)

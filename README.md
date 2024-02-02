@@ -1,6 +1,6 @@
 # bootcampPython
 
-SEMANA 3:
+SEMANA 3:\n
  => Conceitos básicos:
     - Tipos de variáveis
     - Operações matemáticas

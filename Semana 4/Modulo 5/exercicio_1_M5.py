@@ -4,7 +4,7 @@
 3. Um carro temos seguintes comportamentos: liga,desliga,acelera, desacelera. 
 4. Crie uma instância da classe carro. 
 5. Faça o carro "andar" utilizando os métodos da sua classe. 
-6. Faça o carro "parar" utilizando os métodos da sua classe.
+6. Faça o carro "parar" utilizando os métodos da sua classe. 
 '''
 #Crie uma classe que modele o objeto "carro"
 class Carro:

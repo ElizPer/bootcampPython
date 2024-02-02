@@ -8,10 +8,8 @@ tamanhoPalavra = 0
 posicao = []
 palavras = ['sabe', 'oxi', 'ola', 'livro', 'lata']
 rodadas = 0
-letrasUsadas = ['a']
 usadas = []
 
-print(usadas)
 
 #escolhendo a palavra aleatória
 palavraAleatoria = random.choice(palavras)
@@ -30,8 +28,8 @@ def localizacao(palavra, letra):
             posicao.append(p)
     return posicao
     
-print(palavraAleatoria, tamanhoPalavra)
-print(palavraAleatoria_espaço)
+#print(palavraAleatoria, tamanhoPalavra)
+print(f'Iniciando o jogo da forca:\n {palavraAleatoria_espaço}')
 
 
 #RODADAS
@@ -48,7 +46,7 @@ while rodadas <= 6:
                 
         if("".join(palavraAleatoria_espaço) == palavraAleatoria):
             print(palavraAleatoria_espaço)
-            print(f'Parabéns vc completou o jogo da forca, a palavra era {"".join(palavraAleatoria_espaço).upper()} e precisou de {rodadas+1} para descobrir a palavrar') 
+            print(f'Parabéns vc completou o jogo da forca, a palavra era {"".join(palavraAleatoria_espaço).upper()} e precisou de {rodadas+1} rodadas para descobrir a palavrar') 
             break             
         print(palavraAleatoria_espaço)
     else:  
@@ -57,5 +55,6 @@ while rodadas <= 6:
  
     rodadas +=1
     if(rodadas >=6):
-        print('O Jogo da Forca acabou')
-        print(f'A palavra correta é: {palavraAleatoria}')
+        print('\nO Jogo da Forca acabou')
+        print(f'A palavra correta é: {palavraAleatoria.upper()}')
+        break

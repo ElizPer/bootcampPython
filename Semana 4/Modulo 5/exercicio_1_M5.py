@@ -1,4 +1,5 @@
 '''
+Exercícios Classes e Objetos
 1. Crie uma classe que modele o objeto "carro". 
 2. Um carro tem os seguintes atributos: ligado, cor, modelo, velocidade. 
 3. Um carro temos seguintes comportamentos: liga,desliga,acelera, desacelera. 
@@ -38,7 +39,7 @@ class Carro:
         if self.velocidade > self.velocidadeMin:
             self.velocidade -= 20
         else:
-            print (f'Carro está na velocidade {self.velocidade}km, não tem como diminuir')
+            print (f'Carro está na velocidade {self.velocidade}km, não tem como diminuir\n')
 
     def pararCarro(self):
         if not self.ligada:

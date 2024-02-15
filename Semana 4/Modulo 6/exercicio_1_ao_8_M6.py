@@ -72,7 +72,8 @@ cursor = conexao.cursor()
 #dados = cursor.execute('DELETE FROM clientes WHERE id=3')
 
 #----------8) Junção de Tabelas: clientes e compras (criar, inserir produto a um cliente e trazer o cliente produto e )
-#dados = cursor.execute('CREATE TABLE compras(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, cliente_id INTEGER, produto VARCHAR(100), valor FLOAT, CONSTRAINT cliente_id FOREIGN KEY (id) REFERENCES clientes(id))')
+#dados = cursor.execute('CREATE TABLE compras(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, cliente_id INTEGER, produto VARCHAR(100), valor FLOAT, CONSTRAINT cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(id))')
+
 
 #dados = cursor.execute('INSERT INTO compras(id, produto, valor, cliente_id) VALUES(null, "sabão", 16, 1) ')
 #dados = cursor.execute('INSERT INTO compras(id, produto, valor, cliente_id) VALUES(null, "bolacha", 19.5, 3) ')

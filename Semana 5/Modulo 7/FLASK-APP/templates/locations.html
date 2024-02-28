@@ -29,8 +29,17 @@
                 </tr>
               {% endfor %} 
             </tbody>
-            
-        
           </table>
+
+          {% set idAnterior =  locationsInfo.prev|replace("https://rickandmortyapi.com/api/location?page=", "") %}
+          {% if idAnterior != "None" %}
+            <a href="/locations/{{idAnterior}}" class="btn btn-primary"> Anterior </a>
+          {% endif %}
+
+          {% set idProx =  locationsInfo.next|replace("https://rickandmortyapi.com/api/location?page=", "") %}
+          
+          {% if idProx != "None" %}
+            <a href="/locations/{{idProx}}" class="btn btn-primary"> Próximo </a>  
+          {% endif %} 
 </div>
 {% endblock %}

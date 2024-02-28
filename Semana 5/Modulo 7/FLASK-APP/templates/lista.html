@@ -28,6 +28,17 @@
                 </tr>
               {% endfor %} 
             </tbody>
+           
           </table>
+          {% set idAnterior =  listas.prev|replace("https://rickandmortyapi.com/api/character?page=", "") %}
+          {% if idAnterior != "None" %}
+            <a href="/lista/{{idAnterior}}" class="btn btn-primary"> Anterior </a>
+          {% endif %}
+
+          {% set idProx =  listas.next|replace("https://rickandmortyapi.com/api/character?page=", "") %}
+           
+          {% if idProx != "None" %}
+            <a href="/lista/{{idProx}}" class="btn btn-primary"> Próximo </a> 
+          {% endif %}    
 </div>
 {% endblock %}

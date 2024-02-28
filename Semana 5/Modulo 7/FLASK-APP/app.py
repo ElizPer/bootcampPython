@@ -31,15 +31,26 @@ def get_profile(id):
 
     return render_template("profile.html", profile=dict)
 
-@app.route("/locations")
+# Exibe as localizações existentes
+'''@app.route("/locations/")
 def get_locations():
-    url = "https://rickandmortyapi.com/api/location/"
+    url = "https://rickandmortyapi.com/api/location?page="
     response = urllib.request.urlopen(url)
     data = response.read()
     dict = json.loads(data)
 
-    return render_template("locations.html", locations=dict["results"])
+    return render_template("locations.html", locations=dict["results"], locationsInfo=dict["info"])'''
+# Exibe as páginas seguintes das localizações existentes
+@app.route("/locations/<idPage>")
+def get_list_nextPrev_locations(idPage):
+    url = "https://rickandmortyapi.com/api/location?page=" + idPage
+    response = urllib.request.urlopen(url)
+    data = response.read()#vai fazer a leitura dos resultados
+    dict = json.loads(data)#vai formartar para formato de JSON 
 
+    return render_template("locations.html", locations=dict["results"], locationsInfo=dict["info"])
+
+# Exibe os perfils das localizações 
 @app.route("/profile_locations/<id>")
 def get_profile_locations(id):
     url = "https://rickandmortyapi.com/api/location/" + id
@@ -49,15 +60,17 @@ def get_profile_locations(id):
 
     return render_template("profile_locations.html", profile_locations=dict)
 
-@app.route("/episodes")
-def get_episodes():
-    url = "https://rickandmortyapi.com/api/episode/"
+# exibe os episodios
+@app.route("/episodes/<idPage>")
+def get_episodes(idPage):
+    url = "https://rickandmortyapi.com/api/episode?page=" + idPage
     response = urllib.request.urlopen(url)
     data = response.read()
     dict = json.loads(data)
 
-    return render_template("episodes.html", episodes=dict["results"])
+    return render_template("episodes.html", episodes=dict["results"], episodesInfo=dict["info"])
 
+#perfil de cada episódio
 @app.route("/profile_episodes/<id>")
 def get_profile_episodes(id):
     url = "https://rickandmortyapi.com/api/episode/" + id
@@ -67,17 +80,29 @@ def get_profile_episodes(id):
 
     return render_template("profile_episodes.html", profile_episodes=dict)
 
-@app.route("/lista")
+#lista todos os personagens
+'''@app.route("/lista/")
 def get_list_characters():
-    url = "https://rickandmortyapi.com/api/character/"
+    url = "https://rickandmortyapi.com/api/character?page="
     response = urllib.request.urlopen(url)
     characters = response.read()#vai fazer a leitura dos resultados
     dict = json.loads(characters)#vai formartar para formato de JSON 
 
-    return render_template("lista.html", lista=dict["results"])
-    '''characters = []
+    return render_template("lista.html", lista=dict["results"], listas=dict["info"])
+'''
+#listas as páginas dos personagens
+@app.route("/lista/<idPage>")
+def get_list_nextPrev_characters(idPage):
+    url = "https://rickandmortyapi.com/api/character?page=" + idPage
+    response = urllib.request.urlopen(url)
+    characters = response.read()#vai fazer a leitura dos resultados
+    dict = json.loads(characters)#vai formartar para formato de JSON 
 
-    for character in dict["results"]:
+    return render_template("lista.html", lista=dict["results"], listas=dict["info"])
+
+'''   characters = []
+
+   for character in dict["results"]:
         character = {
             "name": character["name"],
             "status": character["status"]          

@@ -26,5 +26,17 @@
           {% endfor %} 
         </tbody>
       </table>
+
+      {% set idAnterior =  episodesInfo.prev|replace("https://rickandmortyapi.com/api/episode?page=", "") %}
+      {% if idAnterior != "None" %}
+        <a href="/episodes/{{idAnterior}}" class="btn btn-primary"> Anterior </a>
+      {% endif %}
+
+      {% set idProx =  episodesInfo.next|replace("https://rickandmortyapi.com/api/episode?page=", "") %}
+      {% if idProx != "None" %}
+        <a href="/episodes/{{idProx}}" class="btn btn-primary"> Próximo </a>
+      {% endif %}
+         
+
 </div>
 {% endblock %}

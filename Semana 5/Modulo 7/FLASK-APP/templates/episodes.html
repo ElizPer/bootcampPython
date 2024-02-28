@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!----< class="row">--->
+<div>
+  <h3>Episódios</h3> 
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Data de lançamento</th>
+            <th scope="col">Código</th>
+          </tr>
+        </thead>
+      
+        <tbody class="table-group-divider">
+          {% for episode in episodes %}
+            <tr>
+    
+              <td>{{episode.name}}</td>
+              <td>{{episode.air_date}}</td>
+              <td>{{episode.episode}}</td>
+              <td><a href="/profile_episodes/{{episode.id}}" class="btn btn-primary"> Ver perfil </a></td>
+           
+            </tr>
+          {% endfor %} 
+        </tbody>
+      </table>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!----< class="row">--->
+<div> 
+  <h3>Localização</h3>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Dimensão</th>
+              </tr>
+            </thead>
+          
+            <tbody class="table-group-divider">
+              {% for location in locations %}
+                <tr>
+        
+                  <td>{{location.name}}</td>
+                  <td>{{location.type}}</td>
+                  {% if location.dimension == "unknown" %}
+                    <td> Desconhecido </td>
+                  {% else %}
+                    <td>{{location.dimension}}</td>
+                  {% endif %}
+                  <td><a href="/profile_locations/{{location.id}}" class="btn btn-primary"> Ver perfil </a></td>
+               
+                </tr>
+              {% endfor %} 
+            </tbody>
+            
+        
+          </table>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!----< class="row">--->
+<div> 
+  <h3>Lista de Personagens</h3>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+          
+            <tbody class="table-group-divider">
+                
+              {% for character in lista %}
+                <tr>
+        
+                  <td>{{character.name}}</td>
+                  
+                  {% if character.status == "unknown" %}
+                    <td>Desconhecido</td>
+                  {% else %}
+                    <td>{{character.status}}</td>
+                  {% endif %}
+                  <td><a href="/profile/{{character.id}}" class="btn btn-primary"> Ver perfil </a></td>
+                </tr>
+              {% endfor %} 
+            </tbody>
+          </table>
+</div>
+{% endblock %}

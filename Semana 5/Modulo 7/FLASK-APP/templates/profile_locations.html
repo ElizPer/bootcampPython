@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div>
+        <h3>Perfil da Localização</h3>
+        <div class="card " style="width: 19.4rem;">
+            <div class="card-header">
+                <h1 class="h5">{{profile_locations.name}}</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><p> <span class="fw-bold">Tipo: </span>{{profile_locations.type}}</p></li>
+                <li class="list-group-item"><p> <span class="fw-bold">Dimensão: </span>{{profile_locations.dimension}}</p></li>
+                <li class="list-group-item" ><span class="fw-bold">Personagens:</span>
+                {% for location in profile_locations.residents %}  
+                    {% set www =  profile_locations.residents[loop.index -1]|replace("https://rickandmortyapi.com/api/character/", "") %}
+                    <a href="/profile/{{www}}">
+                        <p> 
+                            {{ location }}                                                    
+                        </p>
+                    </a>
+                {% endfor %}</li>
+            </ul>
+         
+        </div>
+    </div> 
+</div>
+{% endblock %}

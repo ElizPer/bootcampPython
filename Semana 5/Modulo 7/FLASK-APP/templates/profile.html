@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!----< class="row">--->
+    <div class="col-sm-3 col-6"> 
+        <h3>Perfil do Personagem</h3>
+        <img src="{{profile.image}}" alt="{{profile.name}}" class="img-fluid img-thumbnail" />
+    </div>
+
+    <div>
+        <div class="card " style="width: 19.4rem;">
+            <div class="card-header">
+                <h1 class="h5">{{profile.name}}</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><p> <span class="fw-bold">Espécie: </span>{{profile.species}}</p></li>
+                <li class="list-group-item"><p> <span class="fw-bold">Genêro: </span>{{profile.gender}}</p></li>
+                
+                <!-- Pegando somente o ID da localizaçao-->
+                {% set idLocation = profile.location.url|replace("https://rickandmortyapi.com/api/location/", "") %}
+
+                <!-- Pegando somente o ID da origem-->
+                {% set idOrigin = profile.origin.url|replace("https://rickandmortyapi.com/api/location/", "") %}
+
+                {% if idOrigin == "" %}
+                    <li class="list-group-item"><p> <span class="fw-bold">Origem: </span>Desconhecido</p>
+                {% else %}
+                    <li class="list-group-item"><p> <span class="fw-bold">Origem: </span>{{profile.origin.name}}</p>
+                    <p> <a href="/profile_locations/{{idOrigin}}">Perfil da localização</a></p></li>
+                {% endif %}
+                
+                {% if idLocation == "" %}
+                    <li class="list-group-item"><p> <span class="fw-bold">Origem: </span>Desconhecido</p>
+                {% else %}    
+                    <li class="list-group-item"><p> <span class="fw-bold">Localização: </span>{{profile.location.name}}</p>
+                    <p> <a href="/profile_locations/{{idLocation}}">Perfil da localização</a></p> </li>
+                {% endif %}
+            </ul>
+         
+        </div>
+    </div> 
+</div>
+{% endblock %}

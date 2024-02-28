@@ -48,3 +48,5 @@
 
 # SEMANA 5
  * APIs
+   	- Flask API: exercicio utilizando a API do Rick and Morty
+   	- FastAPI
